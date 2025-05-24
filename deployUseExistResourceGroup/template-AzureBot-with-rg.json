@@ -73,7 +73,7 @@
       "msiResourceId": "[concat(subscription().id, '/resourceGroups/', parameters('UMSIResourceGroupName'), '/providers/', 'Microsoft.ManagedIdentity/userAssignedIdentities/', parameters('UMSIName'))]",
       "appTypeDef": {
         "MultiTenant": {
-          "tenantId": "",
+          "tenantId": ["973ba820-4a58-4246-84bf-170e50b3152b", "973ba820-4a58-4246-84bf-170e50b3152a", "2f4a9838-26b7-47ee-be60-ccc1fdec5953"],
           "msiResourceId": ""
         },
         "SingleTenant": {

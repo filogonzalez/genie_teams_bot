@@ -33,6 +33,7 @@ logger = logging.getLogger(__name__)
 load_dotenv()
 from config import DefaultConfig
 
+# DATABRICKS_SPACE_ID = "01f035fc6bd31a92b930c4bd20d5410b"
 DATABRICKS_SPACE_ID = os.getenv("DATABRICKS_SPACE_ID")
 CONFIG = DefaultConfig()
 # Only chats from the configured Tenant will be allowed

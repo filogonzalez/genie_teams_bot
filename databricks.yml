@@ -1,0 +1,32 @@
+# This is a Databricks asset bundle definition for genie bot.
+# See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
+bundle:
+  name: genie_teams_bot
+
+# include:
+#   - resources/**/*.yml
+#   - bundle.variables.yml
+
+
+targets:
+  dev:
+    # The default target uses 'mode: development' to create a development copy.
+    # - Deployed resources get prefixed with '[dev my_user_name]'
+    # - Any job schedules and triggers are paused by default.
+    # See also https://docs.databricks.com/dev-tools/bundles/deployment-modes.html.
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-4687815777645220.0.azuredatabricks.net/
+
+  prod:
+    mode: production
+    workspace:
+      host: https://adb-4687815777645220.0.azuredatabricks.net/
+      # We explicitly specify /Workspace/Users/99cc5473-2896-4aed-acb1-3500c35e8194 to make sure we only have a single copy.
+      root_path: /Workspace/Users/99cc5473-2896-4aed-acb1-3500c35e8194/.bundle/${bundle.name}/${bundle.target}
+    permissions:
+      - service_principal_name: 99cc5473-2896-4aed-acb1-3500c35e8194
+        level: CAN_MANAGE
+    run_as:
+      service_principal_name: 99cc5473-2896-4aed-acb1-3500c35e8194
