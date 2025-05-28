@@ -10,6 +10,7 @@ export SUBNET_PVT_NAME='PrivateEndpointSubnet'
 export SUBNET_FW_NAME='AzureFirewallSubnet'
 export LOCATION='eastus2'
 export TEAMS_IP_RANGE='52.112.0.0/14 52.122.0.0/15'
+export TEAMS_IP_RANGE=('52.112.0.0/14' '52.122.0.0/15')
 export FIREWALL_NAME=${PREFIX}'-afw-'${LOCATION}
 export VNET_CIDR='172.23.192.0/19'
 export FW_SUBNET_CIDR='172.23.211.0/26'
@@ -21,7 +22,7 @@ export APP_SVC_NAME=${PREFIX}'-as'
 export SVC_PLAN_NAME=${PREFIX}'-sp'
 export APP_SVC_NAME_LOWER=$(echo $APP_SVC_NAME | tr '[:upper:]' '[:lower:]')
 export BOT_ENDPOINT='https://'${APP_SVC_NAME_LOWER}'.azurewebsites.net/api/messages'
-export TENANT_ID=$(az account show --query "tenantId" --output tsv)
+export TENANT_ID=$(az account show --query "tenantId" --output tsv) #'973ba820-4a58-4246-84bf-170e50b3152a' #
 export REG_NAME=${PREFIX_LOWER}'reg'
 export CONTAINER_IMAGE_NAME=${REG_NAME}'.azurecr.io/'${PREFIX_LOWER}'/appcontainer:latest'
 
@@ -37,4 +38,4 @@ export DBX_PL_DNS_ZONE='privatelink.azuredatabricks.net'
 # TO DO: Databricks Workspace and Genie settings; DATABRICKS_TOKEN should be commented or set to an empty string if using Managed Identity
 export DATABRICKS_SPACE_ID='01f035fc6bd31a92b930c4bd20d5410b'
 export DATABRICKS_HOST="https://adb-4687815777645220.0.azuredatabricks.net"
-export DATABRICKS_TOKEN=""
+# export DATABRICKS_TOKEN=""

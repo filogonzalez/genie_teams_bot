@@ -3,17 +3,17 @@ source ./setenv.sh
 
 # Create a virtual network with a subnet for the firewall
 # az network vnet create --name ${VNET_NAME} --resource-group ${VNET_RG_NAME} --location ${LOCATION} --address-prefix ${VNET_CIDR} --subnet-name ${SUBNET_FW_NAME} --subnet-prefix ${FW_SUBNET_CIDR}
-az network vnet subnet create \
-    --name ${SUBNET_FW_NAME} \
-    --resource-group ${VNET_RG_NAME} \
-    --vnet-name ${VNET_NAME} \
-    --address-prefix ${FW_SUBNET_CIDR}
+# az network vnet subnet create \
+#     --name ${SUBNET_FW_NAME} \
+#     --resource-group ${VNET_RG_NAME} \
+#     --vnet-name ${VNET_NAME} \
+#     --address-prefix ${FW_SUBNET_CIDR}
 
 # Add a subnet for the Virtual network integration
-az network vnet subnet create --name ${SUBNET_INT_NAME} --resource-group ${VNET_RG_NAME} --vnet-name ${VNET_NAME} --address-prefix ${INTEGRATION_SUBNET_CIDR}
+# az network vnet subnet create --name ${SUBNET_INT_NAME} --resource-group ${VNET_RG_NAME} --vnet-name ${VNET_NAME} --address-prefix ${INTEGRATION_SUBNET_CIDR}
 
 # Add a subnet where the private endpoint will be deployed for the app service
-az network vnet subnet create --name ${SUBNET_PVT_NAME} --resource-group ${VNET_RG_NAME} --vnet-name ${VNET_NAME} --address-prefix ${ENDPOINT_SUBNET_CIDR}
+# az network vnet subnet create --name ${SUBNET_PVT_NAME} --resource-group ${VNET_RG_NAME} --vnet-name ${VNET_NAME} --address-prefix ${ENDPOINT_SUBNET_CIDR}
 
 # Create a firewall, enable DNS proxy & configure the vnet to use Azure Firewall as the DNS server 
 az network firewall create --name ${FIREWALL_NAME} --resource-group ${VNET_RG_NAME} --location ${LOCATION}
